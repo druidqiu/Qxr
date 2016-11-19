@@ -5,12 +5,19 @@ using Autofac.Integration.Mvc;
 using Qxr.AutoMapper;
 using Qxr.Reflection;
 using Qxr.Domain;
-using Qxr.Repositories.Infrastructures;
+using Qxr.EntityFramework.DbContextStorage;
+using Qxr.EntityFramework;
+using Qxr.EntityFramework.UnitOfWork;
+using Qxr.Models.IRepositories;
+using Qxr.Tests.Repositories.Repositories;
+using System.Data.Entity;
+using Qxr.Tests.Repositories;
 
 namespace Qxr.IocDependency
 {
     public static class IocManager
     {
+        //TODO:将注入分散到每一个程序集中
         public static void RegisterDependency(Assembly mvcWebAssembly)
         {
             var builder = new ContainerBuilder();
@@ -25,19 +32,16 @@ namespace Qxr.IocDependency
         }
         private static IContainer SetupResolveRules(ContainerBuilder builder)
         {
-            //builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IReadOnlyRepository<>)).InstancePerDependency();
-            //builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerDependency();
-
-            builder.RegisterAssemblyTypes(Assembly.Load("Qxr.Repositories")).Where(t => t.Name.EndsWith("Repository")).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(Assembly.Load("Qxr.Services")).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
-            
-            builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>().InstancePerDependency();
-            builder.RegisterType<HttpStorage>().As<IDataStorage>().SingleInstance();
+            builder.RegisterType<HttpDbContextStorage>().As<IDbContextStorage>().SingleInstance();
+            builder.RegisterGeneric(typeof(SimpleDbContextProvider<>)).As(typeof(IDbContextProvider<>)).InstancePerDependency();
+            builder.RegisterType<QxrTestUow>().As<IUnitOfWork>().InstancePerDependency();
             builder.RegisterType<TypeFinder>().As<ITypeFinder>().SingleInstance();
 
-            var container = builder.Build();
+            builder.RegisterAssemblyTypes(Assembly.Load("Qxr.Tests.Repositories")).Where(t => t.Name.EndsWith("Repository")).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(Assembly.Load("Qxr.Services")).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
+            //builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
 
-            DataContextFactory.Initialize(container.Resolve<IDataStorage>());
+            var container = builder.Build();
             new AutoMapperBootstrap(container.Resolve<ITypeFinder>()).CreateMappings();
 
             return container;
