@@ -39,15 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\IAggregateRoot.cs" />
-    <Compile Include="Domain\IReadOnlyRepository.cs" />
-    <Compile Include="Domain\IRepository.cs" />
-    <Compile Include="Domain\IUnitOfWork.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="IRepositories\IRoleRepository.cs" />
     <Compile Include="IRepositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Qxr\Qxr.csproj">
+      <Project>{501c3ac0-6f03-4833-a2f0-ba124bcda5c9}</Project>
+      <Name>Qxr</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

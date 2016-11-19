@@ -1,4 +1,4 @@
-﻿using Qxr.Models.Domain;
+﻿using Qxr.Domain;
 using Qxr.Models.Entities;
 
 namespace Qxr.Models.IRepositories

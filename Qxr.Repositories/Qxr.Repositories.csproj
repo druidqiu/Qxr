@@ -74,6 +74,10 @@
       <Project>{b808cc6d-be9f-4161-844d-ba8cf4545c8b}</Project>
       <Name>Qxr.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Qxr\Qxr.csproj">
+      <Project>{501c3ac0-6f03-4833-a2f0-ba124bcda5c9}</Project>
+      <Name>Qxr</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

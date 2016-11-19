@@ -48,6 +48,10 @@
     <Compile Include="Application\Services\Dto\IRequestDto.cs" />
     <Compile Include="Application\Services\Dto\IResponseDto.cs" />
     <Compile Include="Application\Services\IApplicationService.cs" />
+    <Compile Include="Domain\IAggregateRoot.cs" />
+    <Compile Include="Domain\IReadOnlyRepository.cs" />
+    <Compile Include="Domain\IRepository.cs" />
+    <Compile Include="Domain\IUnitOfWork.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILoggerFactory.cs" />

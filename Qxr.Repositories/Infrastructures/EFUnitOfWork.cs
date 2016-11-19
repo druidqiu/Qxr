@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Qxr.Models.Domain;
+using Qxr.Domain;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Qxr.Models.Domain;
 using System;
+using Qxr.Domain;
 
 namespace Qxr.Models.Entities
 {

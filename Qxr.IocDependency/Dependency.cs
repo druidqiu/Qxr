@@ -4,7 +4,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Qxr.AutoMapper;
 using Qxr.Reflection;
-using Qxr.Models.Domain;
+using Qxr.Domain;
 using Qxr.Repositories.Infrastructures;
 
 namespace Qxr.IocDependency

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Qxr.Models.Domain;
+using Qxr.Domain;
 using EntityFramework.Extensions;
 using Qxr.Repositories.Infrastructures;
 

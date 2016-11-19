@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Qxr.Models.Domain;
-using Qxr.Models.IRepositories;
+using Qxr.Domain;
 using Qxr.Services.Interfaces;
 using Qxr.Services.Messaging.UserService;
 using Qxr.AutoMapper;
+using Qxr.Models.IRepositories;
 
 namespace Qxr.Services.Implementations
 {
