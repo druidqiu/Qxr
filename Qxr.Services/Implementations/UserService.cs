@@ -27,6 +27,11 @@ namespace Qxr.Services.Implementations
             var user = new Models.Entities.User { Code = request.UserCode, Name = request.UserName };
 
             _userRepository.Add(user);
+
+            _userRepository.BulkDelete(t => t.Id == 7);
+
+            //_userRepository.Add(new Models.Entities.User());
+
             _uow.Commit();
         }
 

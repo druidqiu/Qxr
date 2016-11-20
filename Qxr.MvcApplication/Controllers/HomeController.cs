@@ -17,6 +17,12 @@ namespace Qxr.MvcApplication.Controllers
 
         public ActionResult Index()
         {
+            var randomInt = new Random().Next(1,1000000);
+            _userService.AddUser(new Services.Messaging.UserService.AddUserRequest
+            {
+                UserCode = "abc" + randomInt,
+                UserName = "ok" + randomInt
+            });
             var users = _userService.GetUsers();
 
             return View(users);

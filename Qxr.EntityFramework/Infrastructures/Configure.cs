@@ -7,7 +7,6 @@ namespace Qxr.EntityFramework.Infrastructures
         public Configure()
         {
             AddInterceptor(new CommandInterceptor());
-            //SetDatabaseInitializer(new QxrDbInitializer());
         }
     }
 }

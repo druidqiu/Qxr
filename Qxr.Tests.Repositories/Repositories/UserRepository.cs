@@ -7,13 +7,6 @@ namespace Qxr.Tests.Repositories.Repositories
 {
     public class UserRepository : QxrTestRepositoryBase<User>, IUserRepository
     {
-        //TODO:每个类都有构造函数就太丑了
-        public UserRepository(IDbContextProvider<QxrTestDbContext> dbContextProvider)
-            : base(dbContextProvider)
-        {
-
-        }
-
         public RoleNames GetRoles(int userId)
         {
             var user = GetById(userId);

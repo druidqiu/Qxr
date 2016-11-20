@@ -7,10 +7,5 @@ namespace Qxr.Tests.Repositories.Repositories
     public class QxrTestRepositoryBase<TEntity> : EfRepositoryBase<QxrTestDbContext, TEntity>
         where TEntity : class, IAggregateRoot, new()
     {
-        public QxrTestRepositoryBase(IDbContextProvider<QxrTestDbContext> dbContextProvider)
-            : base(dbContextProvider)
-        {
-
-        }
     }
 }

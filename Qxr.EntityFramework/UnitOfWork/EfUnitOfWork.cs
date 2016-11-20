@@ -1,4 +1,5 @@
 ﻿using Qxr.Domain;
+using Qxr.EntityFramework.Infrastructures;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -38,6 +39,8 @@ namespace Qxr.EntityFramework.UnitOfWork
                 {
                     _transaction.Rollback();
                 }
+                _dbContextProvider.ResetDbContext();
+
                 return false;
             }
             catch (Exception ex)
@@ -46,11 +49,13 @@ namespace Qxr.EntityFramework.UnitOfWork
                 {
                     _transaction.Rollback();
                 }
+                _dbContextProvider.ResetDbContext();
+
                 return false;
             }
             finally
             {
-                _dbContextProvider.ResetDbContext();
+                
             }
         }
     }

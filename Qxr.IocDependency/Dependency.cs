@@ -6,12 +6,10 @@ using Qxr.AutoMapper;
 using Qxr.Reflection;
 using Qxr.Domain;
 using Qxr.EntityFramework.DbContextStorage;
-using Qxr.EntityFramework;
 using Qxr.EntityFramework.UnitOfWork;
-using Qxr.Models.IRepositories;
-using Qxr.Tests.Repositories.Repositories;
-using System.Data.Entity;
 using Qxr.Tests.Repositories;
+using Qxr.Dependency;
+using Qxr.EntityFramework.Infrastructures;
 
 namespace Qxr.IocDependency
 {
@@ -26,23 +24,21 @@ namespace Qxr.IocDependency
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 
-        public static T GetInstance<T>()
-        {
-            return DependencyResolver.Current.GetService<T>();
-        }
         private static IContainer SetupResolveRules(ContainerBuilder builder)
         {
             builder.RegisterType<HttpDbContextStorage>().As<IDbContextStorage>().SingleInstance();
             builder.RegisterGeneric(typeof(SimpleDbContextProvider<>)).As(typeof(IDbContextProvider<>)).InstancePerDependency();
-            builder.RegisterType<QxrTestUow>().As<IUnitOfWork>().InstancePerDependency();
+            builder.RegisterType<EfUnitOfWork<QxrTestDbContext>>().As<IUnitOfWork>().InstancePerDependency();
             builder.RegisterType<TypeFinder>().As<ITypeFinder>().SingleInstance();
+            builder.RegisterType<IocResolver>().As<IIocResolver>().SingleInstance();
 
             builder.RegisterAssemblyTypes(Assembly.Load("Qxr.Tests.Repositories")).Where(t => t.Name.EndsWith("Repository")).AsImplementedInterfaces();
             builder.RegisterAssemblyTypes(Assembly.Load("Qxr.Services")).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
             //builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
-
+            
             var container = builder.Build();
             new AutoMapperBootstrap(container.Resolve<ITypeFinder>()).CreateMappings();
+            DbContextProviderFactory.Initialize(container.Resolve<IIocResolver>());
 
             return container;
         }

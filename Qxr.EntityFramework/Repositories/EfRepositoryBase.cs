@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using EntityFramework.Extensions;
+using Qxr.EntityFramework.Infrastructures;
 
 namespace Qxr.EntityFramework.Repositories
 {
@@ -19,9 +18,9 @@ namespace Qxr.EntityFramework.Repositories
         protected virtual TDbContext Context { get { return _dbContextProvider.DbContext; } }
         protected virtual DbSet<TEntity> Table { get { return Context.Set<TEntity>(); } }
 
-        public EfRepositoryBase(IDbContextProvider<TDbContext> dbContextProvider)
+        public EfRepositoryBase()
         {
-            _dbContextProvider = dbContextProvider;
+            _dbContextProvider = DbContextProviderFactory.GetDbContextProvider<TDbContext>();
         }
 
         public override void Add(TEntity entity)

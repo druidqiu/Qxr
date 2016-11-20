@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Qxr.EntityFramework
+namespace Qxr.EntityFramework.Infrastructures
 {
     public interface IDbContextProvider<out TDbContext>
         where TDbContext: DbContext

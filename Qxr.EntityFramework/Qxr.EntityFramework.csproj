@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDbContextProvider.cs" />
+    <Compile Include="Infrastructures\DbContextProviderFactory.cs" />
+    <Compile Include="Infrastructures\IDbContextProvider.cs" />
     <Compile Include="Infrastructures\Configure.cs" />
     <Compile Include="Infrastructures\CommandInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="DbContextStorage\ThreadDbContextStorage.cs" />
     <Compile Include="QxrDbContext.cs" />
     <Compile Include="Repositories\EfRepositoryBase.cs" />
-    <Compile Include="SimpleDbContextProvider.cs" />
+    <Compile Include="Infrastructures\SimpleDbContextProvider.cs" />
     <Compile Include="UnitOfWork\EfUnitOfWork.cs">
       <SubType>Code</SubType>
     </Compile>

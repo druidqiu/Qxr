@@ -12,7 +12,7 @@ namespace Qxr.Tests.Repositories
 
         public override void Initializer()
         {
-            Database.SetInitializer(new QxrTestDbInitializer());
+            Database.SetInitializer<QxrTestDbContext>(null);
         }
 
         #region Entities

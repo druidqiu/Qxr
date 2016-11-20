@@ -29,7 +29,7 @@ namespace Qxr.EntityFramework
 
         public virtual void Initializer()
         {
-
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
