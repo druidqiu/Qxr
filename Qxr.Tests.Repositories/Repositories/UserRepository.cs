@@ -1,7 +1,6 @@
 ﻿using Qxr.Models.Entities;
 using System.Linq;
 using Qxr.Models.IRepositories;
-using Qxr.EntityFramework;
 
 namespace Qxr.Tests.Repositories.Repositories
 {

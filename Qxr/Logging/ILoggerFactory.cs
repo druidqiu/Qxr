@@ -1,5 +1,3 @@
-using System;
-
 namespace Qxr.Logging
 {
     public interface ILoggerFactory

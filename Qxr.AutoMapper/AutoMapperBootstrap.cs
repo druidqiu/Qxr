@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using AutoMapper;
 using Qxr.Reflection;
 
 namespace Qxr.AutoMapper

@@ -1,5 +1,4 @@
 ﻿using Qxr.Domain;
-using Qxr.EntityFramework;
 using Qxr.EntityFramework.Repositories;
 
 namespace Qxr.Tests.Repositories.Repositories

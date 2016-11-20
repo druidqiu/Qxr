@@ -1,8 +1,4 @@
 ﻿using Qxr.MvcAssist.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Qxr.MvcApplication.Controllers
