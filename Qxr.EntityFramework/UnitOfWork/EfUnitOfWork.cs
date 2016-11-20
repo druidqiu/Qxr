@@ -11,12 +11,12 @@ namespace Qxr.EntityFramework.UnitOfWork
     {
         private readonly IDbContextProvider<TDbContext> _dbContextProvider;
         public TDbContext Context { get { return _dbContextProvider.DbContext; } }
-        private readonly DbContextTransaction _transaction;
+        private DbContextTransaction _transaction;
 
         public EfUnitOfWork(IDbContextProvider<TDbContext> dbContextProvider)
         {
             _dbContextProvider = dbContextProvider;
-            _transaction = Context.Database.BeginTransaction();
+            _transaction = Context.Database.CurrentTransaction ?? Context.Database.BeginTransaction();
         }
 
         public override bool Commit()
