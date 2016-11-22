@@ -9,5 +9,21 @@ namespace Qxr.IocDependency
         {
             return DependencyResolver.Current.GetService<T>();
         }
+
+
+        public T Resolve<T>(object argumentsAsAnonymousType)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public object Resolve(System.Type type)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public object Resolve(System.Type type, object argumentsAsAnonymousType)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

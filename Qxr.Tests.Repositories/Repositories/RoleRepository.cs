@@ -3,8 +3,8 @@ using Qxr.Models.IRepositories;
 
 namespace Qxr.Tests.Repositories.Repositories
 {
-    public class RoleRepository : QxrTestRepositoryBase<Role>, IRoleRepository
-    {
+    //public class RoleRepository : QxrTestRepositoryBase<Role>, IRoleRepository
+    //{
 
-    }
+    //}
 }

@@ -7,16 +7,21 @@ using System.Linq;
 
 namespace Qxr.EntityFramework.UnitOfWork
 {
-    public class EfUnitOfWork<TDbContext> : UnitOfWorkBase, IUnitOfWork
+    public class EfUnitOfWork<TDbContext> : UnitOfWorkBase
         where TDbContext : DbContext
     {
         private readonly IDbContextProvider<TDbContext> _dbContextProvider;
-        public TDbContext Context { get { return _dbContextProvider.DbContext; } }
+        private TDbContext Context { get { return _dbContextProvider.DbContext; } }
         private DbContextTransaction _transaction;
 
         public EfUnitOfWork(IDbContextProvider<TDbContext> dbContextProvider)
         {
             _dbContextProvider = dbContextProvider;
+            
+        }
+
+        public override void BeginUow()
+        {
             _transaction = Context.Database.CurrentTransaction ?? Context.Database.BeginTransaction();
         }
 

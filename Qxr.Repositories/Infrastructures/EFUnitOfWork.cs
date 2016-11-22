@@ -9,11 +9,16 @@ namespace Qxr.Repositories.Infrastructures
     public class EFUnitOfWork : IUnitOfWork
     {
         private readonly QxrDataContext _dbContext;
-        private readonly DbContextTransaction _transaction;
+        private DbContextTransaction _transaction;
 
         public EFUnitOfWork()
         {
             _dbContext = DataContextFactory.GetDataContext();
+            
+        }
+
+        public void BeginUow()
+        {
             _transaction = _dbContext.Database.BeginTransaction();
         }
 

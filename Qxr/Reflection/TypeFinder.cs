@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Qxr.Extensions;
+using Qxr.Logging;
 
 namespace Qxr.Reflection
 {
     public class TypeFinder : ITypeFinder
     {
-        //public ILogger Logger { get; set; }
+        public ILogger Logger { get; set; }
 
         public IAssemblyFinder AssemblyFinder { get; set; }
 
         public TypeFinder()
         {
             AssemblyFinder = CurrentDomainAssemblyFinder.Instance;
-            //Logger = NullLogger.Instance;
+            Logger = NullLogger.Instance;
         }
 
         public Type[] Find(Func<Type, bool> predicate)
@@ -56,7 +57,7 @@ namespace Qxr.Reflection
                 }
                 catch (Exception ex)
                 {
-                    //Logger.Warn(ex.ToString(), ex);
+                    Logger.Warn(ex.ToString(), ex);
                 }
             }
 

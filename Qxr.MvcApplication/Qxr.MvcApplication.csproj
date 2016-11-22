@@ -170,9 +170,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Qxr.IocDependency\Qxr.IocDependency.csproj">
-      <Project>{8a6ddf17-eb83-41f8-9bd9-e34bab7c0e4b}</Project>
-      <Name>Qxr.IocDependency</Name>
+    <ProjectReference Include="..\Qxr.AutofacDependency\Qxr.AutofacDependency.csproj">
+      <Project>{72a4cc33-5ae0-492e-8228-9b870306a0c9}</Project>
+      <Name>Qxr.AutofacDependency</Name>
     </ProjectReference>
     <ProjectReference Include="..\Qxr.MvcAssist\Qxr.MvcAssist.csproj">
       <Project>{d1dcb8b5-a68a-4e39-9107-e2e9de140833}</Project>

@@ -18,9 +18,9 @@ namespace Qxr.EntityFramework.Repositories
         protected virtual TDbContext Context { get { return _dbContextProvider.DbContext; } }
         protected virtual DbSet<TEntity> Table { get { return Context.Set<TEntity>(); } }
 
-        public EfRepositoryBase()
+        public EfRepositoryBase(IDbContextProvider<TDbContext> dbContextProvider)
         {
-            _dbContextProvider = DbContextProviderFactory.GetDbContextProvider<TDbContext>();
+            _dbContextProvider = dbContextProvider;
         }
 
         public override void Add(TEntity entity)

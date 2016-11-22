@@ -8,6 +8,13 @@ namespace Qxr.MvcApplication
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        private AutofacDependency.Dependency AutoBootstrapper { get; set; }
+
+        protected MvcApplication()
+        {
+            AutoBootstrapper = new AutofacDependency.Dependency();
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -15,7 +22,13 @@ namespace Qxr.MvcApplication
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigureManager.Run();
-            Qxr.IocDependency.IocManager.RegisterDependency(Assembly.GetExecutingAssembly());
+            
+            AutoBootstrapper.Register(Assembly.GetExecutingAssembly());
+        }
+
+        protected void Application_End()
+        {
+            AutoBootstrapper.Shutdown();
         }
     }
 }
