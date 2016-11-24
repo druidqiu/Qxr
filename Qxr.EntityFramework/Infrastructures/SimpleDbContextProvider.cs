@@ -4,14 +4,14 @@ using System.Data.Entity;
 namespace Qxr.EntityFramework.Infrastructures
 {
     public sealed class SimpleDbContextProvider<TDbContext> : IDbContextProvider<TDbContext>
-        where TDbContext : DbContext,new()
+        where TDbContext : DbContext, new()
     {
-        private static IDbContextStorage _dbContextStorage;
+        private readonly IDbContextStorage _dbContextStorage;
         private const string StorageKey = "dbContextStorage";
 
-        public SimpleDbContextProvider(IDbContextStorage dbContextStorage)
+        public SimpleDbContextProvider()
         {
-            _dbContextStorage = dbContextStorage;
+            _dbContextStorage = new HttpDbContextStorage();
         }
 
         public TDbContext DbContext

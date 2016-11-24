@@ -170,9 +170,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Qxr.IocDependency\Qxr.IocDependency.csproj">
-      <Project>{8a6ddf17-eb83-41f8-9bd9-e34bab7c0e4b}</Project>
-      <Name>Qxr.IocDependency</Name>
+    <ProjectReference Include="..\Qxr.Ioc.UnityInject\Qxr.Ioc.UnityInject.csproj">
+      <Project>{6c7e2022-0074-41b8-a6f9-8be1a40c23cc}</Project>
+      <Name>Qxr.Ioc.UnityInject</Name>
     </ProjectReference>
     <ProjectReference Include="..\Qxr.MvcAssist\Qxr.MvcAssist.csproj">
       <Project>{d1dcb8b5-a68a-4e39-9107-e2e9de140833}</Project>

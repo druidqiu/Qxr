@@ -13,7 +13,7 @@ namespace Qxr.Models.Entities
         Tester = 4
     }
 
-    public class Role : IAggregateRoot
+    public class Role : IEntity, IAggregateRoot
     {
         public Role()
         {

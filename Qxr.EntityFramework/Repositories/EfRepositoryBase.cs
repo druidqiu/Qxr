@@ -10,17 +10,17 @@ using Qxr.EntityFramework.Infrastructures;
 namespace Qxr.EntityFramework.Repositories
 {
     public class EfRepositoryBase<TDbContext, TEntity> : QxrRepositoryBase<TEntity>
-        where TEntity : class, IAggregateRoot, new()
-        where TDbContext : DbContext
+        where TEntity : class, IAggregateRoot
+        where TDbContext : DbContext,new()
     {
-        private readonly IDbContextProvider<TDbContext> _dbContextProvider;
+        private readonly IDbContextProvider<TDbContext> DbContextProvider;
 
-        protected virtual TDbContext Context { get { return _dbContextProvider.DbContext; } }
+        protected virtual TDbContext Context { get { return DbContextProvider.DbContext; } }
         protected virtual DbSet<TEntity> Table { get { return Context.Set<TEntity>(); } }
 
-        public EfRepositoryBase()
+        protected EfRepositoryBase()
         {
-            _dbContextProvider = DbContextProviderFactory.GetDbContextProvider<TDbContext>();
+            DbContextProvider = new SimpleDbContextProvider<TDbContext>();
         }
 
         public override void Add(TEntity entity)
@@ -51,7 +51,7 @@ namespace Qxr.EntityFramework.Repositories
             }
         }
 
-        public override void BulkUpdate(Expression<Func<TEntity, bool>> filterExpression, Expression<Func<TEntity, TEntity>> updateExpression)
+        public override void BulkUpdateByExpression(Expression<Func<TEntity, bool>> filterExpression, Expression<Func<TEntity, TEntity>> updateExpression)
         {
             Table.Where(filterExpression).Update(updateExpression);
         }
@@ -71,7 +71,7 @@ namespace Qxr.EntityFramework.Repositories
             query.Delete();
         }
 
-        public override void BulkDelete(Expression<Func<TEntity, bool>> filterExpression)
+        public override void BulkDeleteByExpression(Expression<Func<TEntity, bool>> filterExpression)
         {
             Table.Where(filterExpression).Delete();
         }

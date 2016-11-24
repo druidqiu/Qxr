@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr", "Qxr\Qxr.csproj", "{501C3AC0-6F03-4833-A2F0-BA124BCDA5C9}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DEAC77E3-41F0-4B96-9E95-028CFD5365E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.Tests.Repositories", "Qxr.Tests.Repositories\Qxr.Tests.Repositories.csproj", "{33A4C9ED-9D9F-4C0B-B4A4-5DB9F06202FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.Ioc.UnityInject", "Qxr.Ioc.UnityInject\Qxr.Ioc.UnityInject.csproj", "{6C7E2022-0074-41B8-A6F9-8BE1A40C23CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{33A4C9ED-9D9F-4C0B-B4A4-5DB9F06202FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33A4C9ED-9D9F-4C0B-B4A4-5DB9F06202FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33A4C9ED-9D9F-4C0B-B4A4-5DB9F06202FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C7E2022-0074-41B8-A6F9-8BE1A40C23CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7E2022-0074-41B8-A6F9-8BE1A40C23CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7E2022-0074-41B8-A6F9-8BE1A40C23CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7E2022-0074-41B8-A6F9-8BE1A40C23CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,7 +15,12 @@ namespace Qxr.MvcApplication
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigureManager.Run();
-            Qxr.IocDependency.IocManager.RegisterDependency(Assembly.GetExecutingAssembly());
+            Ioc.UnityInject.UnityWebActivator.Start();
+        }
+
+        protected void Application_End()
+        {
+            Ioc.UnityInject.UnityWebActivator.Shutdown();
         }
     }
 }

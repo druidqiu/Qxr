@@ -11,23 +11,15 @@ namespace Qxr.EntityFramework
     {
         public ILogger Logger { get; set; }
 
-        public QxrDbContext()
-        {
-            Logger = NullLogger.Instance;
-            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
-            Initializer();
-        }
-
-        public QxrDbContext(string connectionString)
+        protected QxrDbContext(string connectionString)
             : base(connectionString)
         {
-            //TODO: DRY
             Logger = NullLogger.Instance;
-            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;//load sql.dll
             Initializer();
         }
 
-        public virtual void Initializer()
+        protected virtual void Initializer()
         {
             
         }

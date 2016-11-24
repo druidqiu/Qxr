@@ -3,7 +3,7 @@ using Qxr.Domain;
 
 namespace Qxr.Models.Entities
 {
-    public class User : IAggregateRoot //,IValidatableObject
+    public class User : IEntity, IAggregateRoot //,IValidatableObject
     {
         public User()
         {

@@ -12,9 +12,9 @@ namespace Qxr.Domain
         void Update(T entity);
         void UpdateRange(IEnumerable<T> entities);
         void BulkUpdate(IQueryable<T> query, Expression<Func<T, T>> updateExpression);
-        void BulkUpdate(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T>> updateExpression);
+        void BulkUpdateByExpression(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T>> updateExpression);
         void Delete(T entity);
         void BulkDelete(IQueryable<T> query);
-        void BulkDelete(Expression<Func<T, bool>> filterExpression);
+        void BulkDeleteByExpression(Expression<Func<T, bool>> filterExpression);
     }
 }

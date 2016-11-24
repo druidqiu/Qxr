@@ -10,7 +10,7 @@ namespace Qxr.Tests.Repositories
             : base("QxrConnectionString")
         {}
 
-        public override void Initializer()
+        protected override void Initializer()
         {
             Database.SetInitializer<QxrTestDbContext>(null);
             //Database.SetInitializer(new QxrTestDbInitializer());

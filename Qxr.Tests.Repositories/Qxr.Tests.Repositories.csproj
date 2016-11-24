@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QxrTestDbInitializer.cs" />
     <Compile Include="QxrTestDbContext.cs" />
+    <Compile Include="QxrTestUnitOfWork.cs" />
     <Compile Include="Repositories\QxrTestRepositoryBase.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />

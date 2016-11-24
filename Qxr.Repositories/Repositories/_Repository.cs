@@ -48,7 +48,7 @@ namespace Qxr.Repositories.Repositories
             }
         }
 
-        public void BulkUpdate(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T>> updateExpression)
+        public void BulkUpdateByExpression(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T>> updateExpression)
         {
             _dbSet.Where(filterExpression).Update(updateExpression);
         }
@@ -68,7 +68,7 @@ namespace Qxr.Repositories.Repositories
             query.Delete();
         }
 
-        public void BulkDelete(Expression<Func<T, bool>> filterExpression)
+        public void BulkDeleteByExpression(Expression<Func<T, bool>> filterExpression)
         {
             _dbSet.Where(filterExpression).Delete();
         }

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Qxr.Domain
 {
-    public abstract class QxrRepositoryBase<T> : IRepository<T> where T : class, IAggregateRoot, new()
+    public abstract class QxrRepositoryBase<T> : IRepository<T> where T : class, IAggregateRoot
     {
         public abstract void Add(T entity);
 
@@ -15,7 +15,7 @@ namespace Qxr.Domain
 
         public abstract void UpdateRange(IEnumerable<T> entities);
 
-        public abstract void BulkUpdate(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T>> updateExpression);
+        public abstract void BulkUpdateByExpression(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T>> updateExpression);
 
         public abstract void BulkUpdate(IQueryable<T> query, Expression<Func<T, T>> updateExpression);
 
@@ -23,7 +23,7 @@ namespace Qxr.Domain
 
         public abstract void BulkDelete(IQueryable<T> query);
 
-        public abstract void BulkDelete(Expression<Func<T, bool>> filterExpression);
+        public abstract void BulkDeleteByExpression(Expression<Func<T, bool>> filterExpression);
 
         public abstract T GetById(object id);
 

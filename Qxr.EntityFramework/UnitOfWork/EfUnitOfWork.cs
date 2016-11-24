@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace Qxr.EntityFramework.UnitOfWork
 {
-    public class EfUnitOfWork<TDbContext> : UnitOfWorkBase, IUnitOfWork
+    public class EfUnitOfWork<TDbContext> : IUnitOfWork
         where TDbContext : DbContext
     {
         private readonly IDbContextProvider<TDbContext> _dbContextProvider;
-        public TDbContext Context { get { return _dbContextProvider.DbContext; } }
-        private DbContextTransaction _transaction;
+        private TDbContext Context { get { return _dbContextProvider.DbContext; } }
+        private readonly DbContextTransaction _transaction;
 
         public EfUnitOfWork(IDbContextProvider<TDbContext> dbContextProvider)
         {
@@ -20,7 +20,7 @@ namespace Qxr.EntityFramework.UnitOfWork
             _transaction = Context.Database.CurrentTransaction ?? Context.Database.BeginTransaction();
         }
 
-        public override bool Commit()
+        public bool Commit()
         {
             try
             {
@@ -52,10 +52,6 @@ namespace Qxr.EntityFramework.UnitOfWork
                 _dbContextProvider.ResetDbContext();
 
                 return false;
-            }
-            finally
-            {
-                
             }
         }
     }

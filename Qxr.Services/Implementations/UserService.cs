@@ -28,7 +28,7 @@ namespace Qxr.Services.Implementations
 
             _userRepository.Add(user);
 
-            _userRepository.BulkDelete(t => t.Id == 7);
+            _userRepository.BulkDeleteByExpression(t => t.Id == 7);
 
             //_userRepository.Add(new Models.Entities.User());
 

@@ -48,14 +48,15 @@
     <Compile Include="Application\Services\Dto\IRequestDto.cs" />
     <Compile Include="Application\Services\Dto\IResponseDto.cs" />
     <Compile Include="Application\Services\IApplicationService.cs" />
+    <Compile Include="Dependency\DisableAuditingAttribute.cs" />
+    <Compile Include="Dependency\IDependency.cs" />
     <Compile Include="Dependency\IIocResolver.cs" />
     <Compile Include="Domain\IAggregateRoot.cs" />
-    <Compile Include="Domain\ICurrentUnitOfWorkProvider.cs" />
+    <Compile Include="Domain\IEntity.cs" />
     <Compile Include="Domain\IReadOnlyRepository.cs" />
     <Compile Include="Domain\IRepository.cs" />
     <Compile Include="Domain\IUnitOfWork.cs" />
     <Compile Include="Domain\QxrRepositoryBase.cs" />
-    <Compile Include="Domain\UnitOfWorkBase.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILoggerFactory.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Logging\Log4NetFactory.cs" />
     <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Logging\NullLoggerFactory.cs" />
+    <Compile Include="Logging\TextLogger.cs" />
     <Compile Include="LogTxt.cs" />
     <Compile Include="Paging\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
