@@ -9,9 +9,9 @@ namespace Qxr.EntityFramework.Infrastructures
         private readonly IDbContextStorage _dbContextStorage;
         private const string StorageKey = "dbContextStorage";
 
-        public SimpleDbContextProvider()
+        public SimpleDbContextProvider(IDbContextStorage dbContextStorage)
         {
-            _dbContextStorage = new HttpDbContextStorage();
+            _dbContextStorage = dbContextStorage;
         }
 
         public TDbContext DbContext

@@ -1,5 +1,6 @@
 ﻿using System;
 using log4net;
+using log4net.Config;
 
 namespace Qxr.Logging
 {
@@ -9,58 +10,89 @@ namespace Qxr.Logging
 
         public Log4NetAdapter()
         {
-            //XmlConfigurator.Configure(new Uri(AppConfig.Log4NetConfigUrl));
-            //_log = LogManager.GetLogger(AppConfig.Log4NetName);
+            XmlConfigurator.Configure(new Uri(AppConfig.Log4NetConfigUrl));
+            _log = LogManager.GetLogger(AppConfig.Log4NetName);
         }
 
-        public void Debug(object message)
+        public bool IsEnabled(LogLevel level)
         {
-            _log.Debug(message);
+            var isEnabled = false;
+            switch (level)
+            {
+                case LogLevel.Debug:
+                    isEnabled = _log.IsDebugEnabled;
+                    break;
+                case LogLevel.Information:
+                    isEnabled =  _log.IsInfoEnabled;
+                    break;
+                case LogLevel.Warning:
+                    isEnabled = _log.IsWarnEnabled;
+                    break;
+                case LogLevel.Error:
+                    isEnabled = _log.IsErrorEnabled;
+                    break;
+                case LogLevel.Fatal:
+                    isEnabled = _log.IsFatalEnabled;
+                    break;
+            }
+
+            return isEnabled;
         }
 
-        public void Info(object message)
+
+
+        public void Log(LogLevel level, string message)
         {
-            _log.Info(message);
+            if (!IsEnabled(level))
+            {
+                return;
+            }
+
+            switch (level)
+            {
+                case LogLevel.Debug:
+                    _log.Debug(message);
+                    break;
+                case LogLevel.Information:
+                    _log.Info(message);
+                    break;
+                case LogLevel.Warning:
+                    _log.Warn(message);
+                    break;
+                case LogLevel.Error:
+                    _log.Error(message);
+                    break;
+                case LogLevel.Fatal:
+                    _log.Fatal(message);
+                    break;
+            }
         }
 
-        public void Warn(object message)
+        public void Log(LogLevel level, string message, Exception exception)
         {
-            _log.Warn(message);
-        }
+            if (!IsEnabled(level))
+            {
+                return;
+            }
 
-        public void Error(object message)
-        {
-            _log.Error(message);
-        }
-
-        public void Fatal(object message)
-        {
-            _log.Fatal(message);
-        }
-
-        public void Debug(object message, Exception ex)
-        {
-            _log.Debug(message, ex);
-        }
-
-        public void Info(object message, Exception ex)
-        {
-            _log.Info(message, ex);
-        }
-
-        public void Warn(object message, Exception ex)
-        {
-            _log.Warn(message, ex);
-        }
-
-        public void Error(object message, Exception ex)
-        {
-            _log.Error(message, ex);
-        }
-
-        public void Fatal(object message, Exception ex)
-        {
-            _log.Fatal(message, ex);
+            switch (level)
+            {
+                case LogLevel.Debug:
+                    _log.Debug(message, exception);
+                    break;
+                case LogLevel.Information:
+                    _log.Info(message, exception);
+                    break;
+                case LogLevel.Warning:
+                    _log.Warn(message, exception);
+                    break;
+                case LogLevel.Error:
+                    _log.Error(message, exception);
+                    break;
+                case LogLevel.Fatal:
+                    _log.Fatal(message, exception);
+                    break;
+            }
         }
     }
 }

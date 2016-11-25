@@ -2,8 +2,8 @@
 using System.Collections.Concurrent;
 using System.Data.Common;
 using System.Data.Entity.Infrastructure.Interception;
-using System.IO;
 using System.Text;
+using Qxr.Logging;
 
 namespace Qxr.EntityFramework.Infrastructures
 {
@@ -74,23 +74,14 @@ namespace Qxr.EntityFramework.Infrastructures
                 sb.AppendLine("-- " + interceptionContext.Exception.Message);
             }
 
-            sb.AppendLine("-- Excuting at " + startTime);
-            sb.AppendLine("-- Completed in " + duration.Milliseconds + " ms with result: " + interceptionContext.Result);
+            sb.Append("-- Completed in " + duration.Milliseconds + " ms with result: " + interceptionContext.Result);
 
-            SaveToFile(sb.ToString());
+            LogMsg(sb.ToString());
         }
 
-        private static void SaveToFile(string text)
+        private static void LogMsg(string message)
         {
-            string path = AppConfig.EfInterceptorLogDirectoryPath;
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            string file = Path.Combine(path, DateTime.Now.ToString("yyyy-MM-dd") + ".log");
-            var sw = new StreamWriter(file, true);
-            sw.WriteLine(text);
-            sw.Close();
+            LoggingFactory.GetLogger().Log(LogLevel.Debug, message);
         }
     }
 }

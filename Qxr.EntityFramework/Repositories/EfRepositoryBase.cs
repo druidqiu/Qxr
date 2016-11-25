@@ -13,14 +13,14 @@ namespace Qxr.EntityFramework.Repositories
         where TEntity : class, IAggregateRoot
         where TDbContext : DbContext,new()
     {
-        private readonly IDbContextProvider<TDbContext> DbContextProvider;
+        private readonly IDbContextProvider<TDbContext> _dbContextProvider;
 
-        protected virtual TDbContext Context { get { return DbContextProvider.DbContext; } }
+        protected virtual TDbContext Context { get { return _dbContextProvider.DbContext; } }
         protected virtual DbSet<TEntity> Table { get { return Context.Set<TEntity>(); } }
 
         protected EfRepositoryBase()
         {
-            DbContextProvider = new SimpleDbContextProvider<TDbContext>();
+            _dbContextProvider = DbContextProviderFactory.GetDbContextProvider<TDbContext>();
         }
 
         public override void Add(TEntity entity)

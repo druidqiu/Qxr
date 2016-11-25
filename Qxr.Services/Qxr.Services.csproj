@@ -43,7 +43,7 @@
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Messaging\UserService\AddUserRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceModels\User.cs" />
+    <Compile Include="ServiceModels\UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Qxr.AutoMapper\Qxr.AutoMapper.csproj">
