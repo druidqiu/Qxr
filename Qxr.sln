@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr", "Qxr\Qxr.csproj", "{501C3AC0-6F03-4833-A2F0-BA124BCDA5C9}"
 EndProject
@@ -11,13 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.MvcApplication", "Qxr.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.Models", "Qxr.Models\Qxr.Models.csproj", "{B808CC6D-BE9F-4161-844D-BA8CF4545C8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.Repositories", "Qxr.Repositories\Qxr.Repositories.csproj", "{71A9E24C-6E40-473C-BD92-00317933BF7D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.Services", "Qxr.Services\Qxr.Services.csproj", "{FCADBF9F-717D-4925-AD05-5D4097B952E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.AutoMapper", "Qxr.AutoMapper\Qxr.AutoMapper.csproj", "{E2FDA4EC-B718-492E-8BB4-D18B0D308F7C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.IocDependency", "Qxr.IocDependency\Qxr.IocDependency.csproj", "{8A6DDF17-EB83-41F8-9BD9-E34BAB7C0E4B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qxr.EntityFramework", "Qxr.EntityFramework\Qxr.EntityFramework.csproj", "{D8C75F79-454B-4DCB-B072-06F7B9A00342}"
 EndProject
@@ -49,10 +45,6 @@ Global
 		{B808CC6D-BE9F-4161-844D-BA8CF4545C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B808CC6D-BE9F-4161-844D-BA8CF4545C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B808CC6D-BE9F-4161-844D-BA8CF4545C8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71A9E24C-6E40-473C-BD92-00317933BF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71A9E24C-6E40-473C-BD92-00317933BF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71A9E24C-6E40-473C-BD92-00317933BF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71A9E24C-6E40-473C-BD92-00317933BF7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCADBF9F-717D-4925-AD05-5D4097B952E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCADBF9F-717D-4925-AD05-5D4097B952E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCADBF9F-717D-4925-AD05-5D4097B952E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,10 +53,6 @@ Global
 		{E2FDA4EC-B718-492E-8BB4-D18B0D308F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2FDA4EC-B718-492E-8BB4-D18B0D308F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2FDA4EC-B718-492E-8BB4-D18B0D308F7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A6DDF17-EB83-41F8-9BD9-E34BAB7C0E4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A6DDF17-EB83-41F8-9BD9-E34BAB7C0E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A6DDF17-EB83-41F8-9BD9-E34BAB7C0E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A6DDF17-EB83-41F8-9BD9-E34BAB7C0E4B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8C75F79-454B-4DCB-B072-06F7B9A00342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8C75F79-454B-4DCB-B072-06F7B9A00342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8C75F79-454B-4DCB-B072-06F7B9A00342}.Release|Any CPU.ActiveCfg = Release|Any CPU
