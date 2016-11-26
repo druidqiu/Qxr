@@ -46,7 +46,7 @@ namespace Qxr.Ioc.UnityInject
         private void PreInvoke(IMethodInvocation input)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("Pre Invoke Method: {0}.{1}, ", input.Target.GetType().Name, input.MethodBase.Name));
+            sb.Append(string.Format("Pre  Invoke Method: {0}.{1}, ", input.Target.GetType().Name, input.MethodBase.Name));
             sb.Append("Arguments: ");
             for (var i = 0; i < input.Arguments.Count; i++)
             {

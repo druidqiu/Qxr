@@ -51,8 +51,6 @@ namespace Qxr.Ioc.UnityInject
             container.RegisterType(typeof (IDbContextProvider<>), typeof (SimpleDbContextProvider<>), new TransientLifetimeManager());
             container.RegisterType<ITypeFinder, TypeFinder>(new ContainerControlledLifetimeManager());
 
-            container.RegisterType<IUnitOfWork, QxrTestUnitOfWork>();
-
             //var repoAssemblies = AllClasses.FromAssemblies(Assembly.Load("Qxr.Tests.Repositories")).Where(t => typeof(IDependency).IsAssignableFrom(t));
             //var serviceAssemblies = AllClasses.FromAssemblies(Assembly.Load("Qxr.Services")).Where(t => typeof(IDependency).IsAssignableFrom(t));
             var repoAssemblies = AllClasses.FromAssemblies(Assembly.Load("Qxr.Tests.Repositories")).Where(t => t.Name.EndsWith("Repository"));
@@ -72,7 +70,7 @@ namespace Qxr.Ioc.UnityInject
 
             container.RegisterType(typeof(IReadOnlyRepository<>), typeof(QxrTestRepositoryBase<>), interceptionInjectionMembers);
             container.RegisterType(typeof(IRepository<>), typeof(QxrTestRepositoryBase<>), interceptionInjectionMembers);
-
+            container.RegisterType<IUnitOfWork, QxrTestUnitOfWork>(interceptionInjectionMembers);
             //var loggerTypes = allAssemblies.Where(t => t.GetProperties().Any(c => c.PropertyType == typeof(ILogger)));
             //container.RegisterTypes(loggerTypes,
             //    WithMappings.FromMatchingInterface,

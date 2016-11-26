@@ -12,8 +12,8 @@ namespace Qxr.Tests.Repositories
 
         protected override void Initializer()
         {
-            Database.SetInitializer<QxrTestDbContext>(null);
-            //Database.SetInitializer(new QxrTestDbInitializer());
+            //Database.SetInitializer<QxrTestDbContext>(null);
+            Database.SetInitializer(new QxrTestDbInitializer());
         }
 
         #region Entities
